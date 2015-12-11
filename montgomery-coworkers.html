@@ -1,23 +1,33 @@
 <head>
-  <title>Montgomery Coworkers</title>
+    <title>Montgomery Coworkers</title>
 </head>
 
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-   {{> loginButtons}}
-  </div>
-</nav>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            {{> loginButtons}}
+        </div>
+    </nav>
 
-  <div class="container js-container" >
+    <div class="container js-container" >
 
-    <h1>Welcome to Montgomery Coworkers {{username}}!</h1>
+        <h1>Welcome to Montgomery Coworkers {{username}}!</h1>
 
-</div>
-    
+        <ul>
+            {{#each statuses}}
+            {{> status}}
+            {{/each}}
+        </ul>
+
+        <template name="status">
+            <li>{{text}}</li>
+        </template>
+
+    </div>
+
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
+    <button>Click Me</button>
 </template>

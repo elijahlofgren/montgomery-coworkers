@@ -7,19 +7,24 @@ if (Meteor.isClient) {
         passwordSignupFields: "USERNAME_AND_EMAIL"
     });
 
-    Template.body.helpers({username:function(){
-            if (Meteor.user()){
-              return Meteor.user().username;
+    Template.body.helpers(
+        {
+            username:function(){
+                if (Meteor.user()){
+                    return Meteor.user().username;
+                }
+                else {
+                    return "anonymous internet user";
+                }
+            },
+            statuses: function () {
+                return Status.find({});
             }
-            else {
-              return "anonymous internet user";
-            }
-        }
-    });
-    
+        });
+
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-  });
+    Meteor.startup(function () {
+    });
 }
